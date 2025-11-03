@@ -3,7 +3,9 @@ plugins {
     id 'idea'
     id 'maven-publish'
     id 'net.minecraftforge.gradle' version '[6.0,6.2)'
+    id "org.spongepowered.mixin" version "0.7.+"
 }
+// Mixin included for Lionfish API since its EntityMixin wants to cause problems
 
 version = mod_version
 group = mod_group_id
@@ -145,7 +147,8 @@ dependencies {
 //    implementation fg.deobf("krelox.spartantoolkit:spartantoolkit:$minecraft_version-$spartanToolkitVersion")
     implementation fg.deobf("curse.maven:spartan-weaponry-addon-toolkit-1051658:$spartanToolkitVersion")
 
-    //implementation fg.deobf("curse.maven:lionfish-api-1001614:$lionfish_version")
+    implementation fg.deobf("curse.maven:lionfish-api-1001614:$lionfish_version")
+    implementation fg.deobf("curse.maven:curios-309927:$curios_version")
 
     implementation fg.deobf("curse.maven:lendercataclysm-551586:$cataclysm_version")
 
