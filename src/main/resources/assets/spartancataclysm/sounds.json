@@ -1,0 +1,43 @@
+{
+  "accursed_rage_max": {    
+    "subtitle": "sounds.spartancataclysm.accursed_rage_max",
+    "sounds": [
+      {
+        "name": "cataclysm:maledictus_short_roar",
+        "type": "event",
+        "pitch": 1,
+        "volume": 0.75
+      }
+    ]
+  },
+  "cursium_hit": {
+    "sounds": [
+      {
+        "name": "cataclysm:hammertime",
+        "type": "event",
+        "pitch": 1,
+        "volume": 0.75
+      }
+    ]
+  },
+  "ignitium_hit": {
+    "sounds": [
+      {
+        "name": "cataclysm:ignis_hurt",
+        "type": "event",
+        "pitch": 1.25,
+        "volume": 0.75
+      }
+    ]
+  },
+  "witherite_hit": {
+    "sounds": [
+      {
+        "name": "cataclysm:bolt_strike",
+        "type": "event",
+        "pitch": 1,
+        "volume": 0.75
+      }
+    ]
+  }
+}
