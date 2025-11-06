@@ -126,32 +126,32 @@ public class Config
                 .comment("Chance for Witherite weapons to set the target on fire and apply Wither.  Set to 0 to disable")
                 .defineInRange("mechaSmiteHarmfulEffectsChance", 1.0, 0.0, Double.MAX_VALUE);
 
-        MECHA_SMITE_REGEN_CHANCE = BUILDER
-                .comment("Chance for Witherite weapons apply wither to the user when under half health.  Set to 0 to disable")
-                .defineInRange("mechaSmiteRegenChance", 0.5, 0.0, Double.MAX_VALUE);
-
         MECHA_SMITE_FIRE_DURATION = BUILDER
-                .comment("Duration (seconds) of the Fire applied by Witherite weapons.  Set to 0 to disable.")
+                .comment("Duration (seconds) of the Fire applied by Witherite weapons.  Set to 0 to disable")
                 .defineInRange("mechaSmiteFireDuration", 5, 0, Integer.MAX_VALUE);
 
         MECHA_SMITE_WITHER_DURATION = BUILDER
-                .comment("Duration (ticks) of the Wither effect applied to the target by Witherite weapons.  Set to 0 to disable.")
+                .comment("Duration (ticks) of the Wither effect applied to the target by Witherite weapons.  Set to 0 to disable")
                 .defineInRange("mechaSmiteWitherDuration", 100, 0, Integer.MAX_VALUE);
 
         MECHA_SMITE_WITHER_AMP = BUILDER
                 .comment("Amplifier of the Wither effect applied to the target by Witherite weapons.")
                 .defineInRange("mechaSmiteWitherAmplifier", 1, 0, Integer.MAX_VALUE);
 
+        MECHA_SMITE_REGEN_CHANCE = BUILDER
+                .comment("Chance for Witherite weapons apply regeneration to the user when under health threshold.  Set to 0 to disable")
+                .defineInRange("mechaSmiteRegenChance", 0.5, 0.0, Double.MAX_VALUE);
+
         MECHA_SMITE_REGEN_THRESHOLD_TYPE = BUILDER
-                .comment("Whether Witherite weapons should apply Regeneration to the user at half their max health (true), or at a defined health amount (false)")
+                .comment("Whether Witherite weapons should apply Regeneration to the user at a certain health percentage (true), or at a defined health amount (false)")
                 .define("mechaSmiteRegenUsesPercentage", true);
 
         MECHA_SMITE_REGEN_THRESHOLD_PERCENT = BUILDER
-                .comment("If mechaSmiteRegenUsesPercentage is true, Witherite weapons will apply Regeneration to the user when under this percentage of health.  Set to 0 to disable.")
+                .comment("If mechaSmiteRegenUsesPercentage is true, Witherite weapons will apply Regeneration to the user when under this percentage of health.  Set to 0 to disable")
                 .defineInRange("mechaSmiteRegenPercentage", 0.5, 0.0, Double.MAX_VALUE);
 
         MECHA_SMITE_REGEN_THRESHOLD = BUILDER
-                .comment("If mechaSmiteRegenUsesPercentage is false, Witherite weapons will apply Regeneration to the user when under this amount of health.  Set to 0 to disable.")
+                .comment("If mechaSmiteRegenUsesPercentage is false, Witherite weapons will apply Regeneration to the user when under this amount of health.  Set to 0 to disable")
                 .defineInRange("mechaSmiteRegenThreshold", 10, 0, Integer.MAX_VALUE);
 
         MECHA_SMITE_REGEN_DURATION = BUILDER
