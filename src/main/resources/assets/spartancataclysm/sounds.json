@@ -16,7 +16,7 @@
         "name": "cataclysm:hammertime",
         "type": "event",
         "pitch": 1,
-        "volume": 0.5
+        "volume": 0.4
       }
     ]
   },
@@ -37,7 +37,7 @@
         "name": "cataclysm:harbinger_charge",
         "type": "event",
         "pitch": 1,
-        "volume": 0.4
+        "volume": 0.42
       }
     ]
   },

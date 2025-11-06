@@ -53,11 +53,11 @@ public class Config
 
         ACCURSED_RAGE_CHANCE = BUILDER
                 .comment("Chance for Cursium weapons to stack Accursed Rage on the user.  Set to 0 to disable")
-                .defineInRange("accursedRageChance", 0.75, 0.0, Double.MAX_VALUE);
+                .defineInRange("accursedRageChance", 0.66, 0.0, Double.MAX_VALUE);
 
         ACCURSED_RAGE_EXTRA_DAMAGE = BUILDER
                 .comment("Additional damage attackers do with Cursium weapons per level of Accursed Rage.")
-                .defineInRange("accursedRageExtraDamage", 1.5, 0, Double.MAX_VALUE);
+                .defineInRange("accursedRageExtraDamage", 1.0, 0, Double.MAX_VALUE);
 
         ACCURSED_RAGE_DURATION = BUILDER
                 .comment("Duration (ticks) of the Accursed Rage effect granted by Cursium weapons.")
