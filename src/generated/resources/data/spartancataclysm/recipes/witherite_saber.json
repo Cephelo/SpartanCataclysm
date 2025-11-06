@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "spartanweaponry:type_disabled",
+      "disabled": [
+        "saber"
+      ]
+    }
+  ],
+  "group": "spartanweaponry:saber",
+  "key": {
+    "#": {
+      "tag": "spartancataclysm:witherite_ingots"
+    },
+    "|": {
+      "item": "spartanweaponry:handle"
+    }
+  },
+  "pattern": [
+    " #",
+    " #",
+    "#|"
+  ],
+  "result": {
+    "item": "spartancataclysm:witherite_saber"
+  }
+}

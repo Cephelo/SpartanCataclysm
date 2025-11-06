@@ -6,7 +6,7 @@
         "name": "cataclysm:maledictus_short_roar",
         "type": "event",
         "pitch": 1,
-        "volume": 0.75
+        "volume": 0.5
       }
     ]
   },
@@ -16,7 +16,7 @@
         "name": "cataclysm:hammertime",
         "type": "event",
         "pitch": 1,
-        "volume": 0.75
+        "volume": 0.5
       }
     ]
   },
@@ -26,17 +26,28 @@
         "name": "cataclysm:ignis_hurt",
         "type": "event",
         "pitch": 1.25,
-        "volume": 0.75
+        "volume": 0.4
+      }
+    ]
+  },
+  "mecha_pulse_shockwave": {
+    "subtitle": "sounds.spartancataclysm.mecha_pulse_shockwave",
+    "sounds": [
+      {
+        "name": "cataclysm:harbinger_charge",
+        "type": "event",
+        "pitch": 1,
+        "volume": 0.4
       }
     ]
   },
   "witherite_hit": {
     "sounds": [
       {
-        "name": "cataclysm:bolt_strike",
+        "name": "cataclysm:emp_activated",
         "type": "event",
         "pitch": 1,
-        "volume": 0.75
+        "volume": 0.4
       }
     ]
   }

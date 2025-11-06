@@ -1,0 +1,6 @@
+{
+  "parent": "spartanweaponry:item/base/heavy_crossbow_pulling",
+  "textures": {
+    "layer0": "spartancataclysm:item/black_steel_heavy_crossbow_pulling_0"
+  }
+}

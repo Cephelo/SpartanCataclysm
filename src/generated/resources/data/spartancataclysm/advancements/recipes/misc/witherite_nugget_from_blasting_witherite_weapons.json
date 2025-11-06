@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "criteria": {
+      "conditions": {
+        "recipe": "spartancataclysm:witherite_nugget_from_blasting_witherite_weapons"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "spartancataclysm:witherite_nugget_from_blasting_witherite_weapons"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "criteria",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "spartancataclysm:witherite_nugget_from_blasting_witherite_weapons"
+    ]
+  },
+  "sends_telemetry_event": false
+}

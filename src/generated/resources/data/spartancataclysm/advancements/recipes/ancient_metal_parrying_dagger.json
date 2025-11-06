@@ -1,0 +1,33 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_ancient_metal": {
+      "conditions": {
+        "items": [
+          {
+            "tag": "spartancataclysm:ancient_metal_ingots"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "spartancataclysm:ancient_metal_parrying_dagger"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_ancient_metal",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "spartancataclysm:ancient_metal_parrying_dagger"
+    ]
+  },
+  "sends_telemetry_event": true
+}

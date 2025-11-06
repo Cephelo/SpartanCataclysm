@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "cataclysm:cursium_ingot"
+  },
+  "base": {
+    "item": "spartanweaponry:netherite_battle_hammer"
+  },
+  "result": {
+    "item": "spartancataclysm:cursium_battle_hammer"
+  },
+  "template": {
+    "item": "cataclysm:cursium_upgrade_smithing_template"
+  }
+}

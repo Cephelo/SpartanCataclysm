@@ -16,7 +16,7 @@ public class SCSounds {
     public static final RegistryObject<SoundEvent> CURSIUM_HIT = registerSoundEvent("cursium_hit");
     public static final RegistryObject<SoundEvent> WITHERITE_HIT = registerSoundEvent("witherite_hit");
     public static final RegistryObject<SoundEvent> ACCURSED_RAGE_MAX = registerSoundEvent("accursed_rage_max");
-
+    public static final RegistryObject<SoundEvent> MECHA_PULSE_SHOCKWAVE = registerSoundEvent("mecha_pulse_shockwave");
 
     private static RegistryObject<SoundEvent> registerSoundEvent(String name) {
         return SOUND_EVENTS.register(name, () ->

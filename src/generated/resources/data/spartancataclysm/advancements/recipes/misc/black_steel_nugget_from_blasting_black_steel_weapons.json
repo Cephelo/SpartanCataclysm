@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "criteria": {
+      "conditions": {
+        "recipe": "spartancataclysm:black_steel_nugget_from_blasting_black_steel_weapons"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "spartancataclysm:black_steel_nugget_from_blasting_black_steel_weapons"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "criteria",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "spartancataclysm:black_steel_nugget_from_blasting_black_steel_weapons"
+    ]
+  },
+  "sends_telemetry_event": false
+}

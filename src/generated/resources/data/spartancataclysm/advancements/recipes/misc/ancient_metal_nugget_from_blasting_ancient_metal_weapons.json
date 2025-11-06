@@ -1,0 +1,29 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "criteria": {
+      "conditions": {
+        "recipe": "spartancataclysm:ancient_metal_nugget_from_blasting_ancient_metal_weapons"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "spartancataclysm:ancient_metal_nugget_from_blasting_ancient_metal_weapons"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "criteria",
+      "has_the_recipe"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "spartancataclysm:ancient_metal_nugget_from_blasting_ancient_metal_weapons"
+    ]
+  },
+  "sends_telemetry_event": false
+}

@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "cataclysm:ignitium_ingot"
+  },
+  "base": {
+    "item": "spartanweaponry:netherite_battle_hammer"
+  },
+  "result": {
+    "item": "spartancataclysm:ignitium_battle_hammer"
+  },
+  "template": {
+    "item": "cataclysm:ignitium_upgrade_smithing_template"
+  }
+}

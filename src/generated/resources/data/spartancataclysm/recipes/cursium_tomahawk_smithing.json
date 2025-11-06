@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:smithing_transform",
+  "addition": {
+    "item": "cataclysm:cursium_ingot"
+  },
+  "base": {
+    "item": "spartanweaponry:netherite_tomahawk"
+  },
+  "result": {
+    "item": "spartancataclysm:cursium_tomahawk"
+  },
+  "template": {
+    "item": "cataclysm:cursium_upgrade_smithing_template"
+  }
+}

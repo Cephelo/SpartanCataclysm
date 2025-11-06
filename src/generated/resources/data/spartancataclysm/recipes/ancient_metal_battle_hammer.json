@@ -1,0 +1,28 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "conditions": [
+    {
+      "type": "spartanweaponry:type_disabled",
+      "disabled": [
+        "battle_hammer"
+      ]
+    }
+  ],
+  "group": "spartanweaponry:battle_hammer",
+  "key": {
+    "#": {
+      "tag": "spartancataclysm:ancient_metal_ingots"
+    },
+    "|": {
+      "item": "spartanweaponry:handle"
+    }
+  },
+  "pattern": [
+    "###",
+    "###",
+    " | "
+  ],
+  "result": {
+    "item": "spartancataclysm:ancient_metal_battle_hammer"
+  }
+}

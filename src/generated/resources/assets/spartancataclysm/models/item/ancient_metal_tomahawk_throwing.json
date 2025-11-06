@@ -1,0 +1,6 @@
+{
+  "parent": "spartanweaponry:item/base/tomahawk_throwing",
+  "textures": {
+    "layer0": "spartancataclysm:item/ancient_metal_tomahawk"
+  }
+}
