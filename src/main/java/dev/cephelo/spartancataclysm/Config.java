@@ -1,5 +1,6 @@
 package dev.cephelo.spartancataclysm;
 
+import krelox.spartantoolkit.SpartanMaterial;
 import net.minecraftforge.common.ForgeConfigSpec;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -8,12 +9,21 @@ import net.minecraftforge.fml.event.config.ModConfigEvent;
 @Mod.EventBusSubscriber(modid = SpartanCataclysm.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Config
 {
-
     private static final ForgeConfigSpec.BooleanValue
             MECHA_SMITE_REGEN_THRESHOLD_TYPE,
             CUSTOM_SOUNDS;
 
     private static final ForgeConfigSpec.DoubleValue
+            ANCIENT_METAL_DAMAGE,
+            BLACK_STEEL_DAMAGE,
+            CURSIUM_DAMAGE,
+            IGNITIUM_DAMAGE,
+            WITHERITE_DAMAGE,
+            ANCIENT_METAL_SPEED,
+            BLACK_STEEL_SPEED,
+            CURSIUM_SPEED,
+            IGNITIUM_SPEED,
+            WITHERITE_SPEED,
             ACCURSED_RAGE_CHANCE,
             ACCURSED_RAGE_EXTRA_DAMAGE,
             BLAZING_BRAND_CHANCE,
@@ -48,23 +58,67 @@ public class Config
 
         BUILDER.comment(" SPARTAN CATACLYSM CONFIG\n");
 
+        BUILDER.push("Material Modifiers");
+
+        ANCIENT_METAL_DAMAGE = BUILDER
+                .comment(" Attack Damage Modifier for Ancient Metal weapons.  Requires restart.")
+                .defineInRange("ancientMetalDamageModifier", 0.0, -10000.0, 10000.0);
+
+        ANCIENT_METAL_SPEED = BUILDER
+                .comment(" Attack Speed Modifier for Ancient Metal weapons.  Requires restart.")
+                .defineInRange("ancientMetalSpeedModifier", 0.0, -10000.0, 10000.0);
+
+        BLACK_STEEL_DAMAGE = BUILDER
+                .comment(" Attack Damage Modifier for Black Steel weapons.  Requires restart.")
+                .defineInRange("blackSteelDamageModifier", 0.0, -10000.0, 10000.0);
+
+        BLACK_STEEL_SPEED = BUILDER
+                .comment(" Attack Speed Modifier for Black Steel weapons.  Requires restart.")
+                .defineInRange("blackSteelSpeedModifier", 0.0, -10000.0, 10000.0);
+
+        CURSIUM_DAMAGE = BUILDER
+                .comment(" Attack Damage Modifier for Cursium weapons.  Requires restart.")
+                .defineInRange("cursiumDamageModifier", 0.0, -10000.0, 10000.0);
+
+        CURSIUM_SPEED = BUILDER
+                .comment(" Attack Speed Modifier for Cursium weapons.  Requires restart.")
+                .defineInRange("cursiumSpeedModifier", 0.0, -10000.0, 10000.0);
+
+        IGNITIUM_DAMAGE = BUILDER
+                .comment(" Attack Damage Modifier for Ignitium weapons.  Requires restart.")
+                .defineInRange("ignitiumDamageModifier", 0.0, -10000.0, 10000.0);
+
+        IGNITIUM_SPEED = BUILDER
+                .comment(" Attack Speed Modifier for Ignitium weapons.  Requires restart.")
+                .defineInRange("ignitiumSpeedModifier", 0.0, -10000.0, 10000.0);
+
+        WITHERITE_DAMAGE = BUILDER
+                .comment(" Attack Damage Modifier for Witherite weapons.  Requires restart.")
+                .defineInRange("witheriteDamageModifier", 0.0, -10000.0, 10000.0);
+
+        WITHERITE_SPEED = BUILDER
+                .comment(" Attack Speed Modifier for Witherite weapons.  Requires restart.")
+                .defineInRange("witheriteSpeedModifier", 0.0, -10000.0, 10000.0);
+
+        BUILDER.pop();
+
         // ACCURSED RAGE OPTIONS
         BUILDER.push("Accursed Rage Options");
 
         ACCURSED_RAGE_CHANCE = BUILDER
-                .comment("Chance for Cursium weapons to stack Accursed Rage on the user.  Set to 0 to disable")
-                .defineInRange("accursedRageChance", 0.66, 0.0, Double.MAX_VALUE);
+                .comment(" Chance for Cursium weapons to stack Accursed Rage on the user.  Set to 0 to disable.")
+                .defineInRange("accursedRageChance", 0.66, 0.0, 1.0);
 
         ACCURSED_RAGE_EXTRA_DAMAGE = BUILDER
-                .comment("Additional damage attackers do with Cursium weapons per level of Accursed Rage.")
+                .comment(" Additional damage attackers do with Cursium weapons per level of Accursed Rage.")
                 .defineInRange("accursedRageExtraDamage", 1.0, 0, Double.MAX_VALUE);
 
         ACCURSED_RAGE_DURATION = BUILDER
-                .comment("Duration (ticks) of the Accursed Rage effect granted by Cursium weapons.")
+                .comment(" Duration (ticks) of the Accursed Rage effect granted by Cursium weapons.")
                 .defineInRange("accursedRageDuration", 110, 0, Integer.MAX_VALUE);
 
         ACCURSED_RAGE_MAXIMUM = BUILDER
-                .comment("Maximum amplifier the Accursed Rage effect can reach using Cursium weapons.")
+                .comment(" Maximum amplifier the Accursed Rage effect can reach using Cursium weapons.")
                 .defineInRange("accursedRageMaxAmplifier", 4, 0, Integer.MAX_VALUE);
 
         BUILDER.pop();
@@ -73,19 +127,19 @@ public class Config
         BUILDER.push("Blazing Brand Options");
 
         BLAZING_BRAND_CHANCE = BUILDER
-                .comment("Chance for Ignitium weapons to stack Blazing Brand onto attacked entities.  Set to 0 to disable")
-                .defineInRange("blazingBrandChance", 0.75, 0.0, Double.MAX_VALUE);
+                .comment(" Chance for Ignitium weapons to stack Blazing Brand onto attacked entities.  Set to 0 to disable.")
+                .defineInRange("blazingBrandChance", 0.75, 0.0, 1.0);
 
         LIFESTEAL_MULTIPLIER = BUILDER
-                .comment("Lifesteal multiplier for Ignitium weapons.  Lifesteal amount depends on attack speed, so rate should correlates with DPS.  Set to 0 to disable lifesteal.")
+                .comment(" Lifesteal multiplier for Ignitium weapons.  Lifesteal amount depends on attack speed, so rate should correlates with DPS.  Set to 0 to disable lifesteal.")
                 .defineInRange("lifestealMultiplier", 1.25, 0.0, Double.MAX_VALUE);
 
         BLAZING_BRAND_DURATION = BUILDER
-                .comment("Duration (ticks) of the Blazing Brand effect inflicted by Ignitium weapons.  Default is identical to Ignis' abilities.")
+                .comment(" Duration (ticks) of the Blazing Brand effect inflicted by Ignitium weapons.  Default is identical to Ignis' abilities.")
                 .defineInRange("blazingBrandDuration", 240, 0, Integer.MAX_VALUE);
 
         BLAZING_BRAND_MAXIMUM = BUILDER
-                .comment("Maximum amplifier the Blazing Brand effect can reach using Ignitium weapons.  Default is identical to Ignis' abilities.")
+                .comment(" Maximum amplifier the Blazing Brand effect can reach using Ignitium weapons.  Default is identical to Ignis' abilities.")
                 .defineInRange("blazingBrandMaxAmplifier", 4, 0, Integer.MAX_VALUE);
 
         BUILDER.pop();
@@ -94,27 +148,27 @@ public class Config
         BUILDER.push("Mecha Pulse Options");
 
         MECHA_PULSE_CHARGE_CHANCE = BUILDER
-                .comment("Chance for Witherite weapons to stack the Pulse Charge effect on the user.  Set to 0 to disable")
-                .defineInRange("mechaPulseChargeChance", 0.75, 0.0, Double.MAX_VALUE);
+                .comment(" Chance for Witherite weapons to stack the Pulse Charge effect on the user.  Set to 0 to disable.")
+                .defineInRange("mechaPulseChargeChance", 0.75, 0.0, 1.0);
 
         MECHA_PULSE_EFFECT_DURATION = BUILDER
-                .comment("Duration (ticks) of the Pulse Charge effect granted by Witherite weapons.")
-                .defineInRange("mechaPulseEffectDuration", 160, 0, Integer.MAX_VALUE);
+                .comment(" Duration (ticks) of the Pulse Charge effect granted by Witherite weapons.")
+                .defineInRange("mechaPulseEffectDuration", 140, 0, Integer.MAX_VALUE);
 
         MECHA_PULSE_STUN_THRESHOLD = BUILDER
-                .comment("Amplifier of the Pulse Charge effect at which a shockwave is released, stunning the target.")
+                .comment(" Amplifier of the Pulse Charge effect at which a shockwave is released, stunning the target.")
                 .defineInRange("mechaPulseStunThreshold", 9, 0, Integer.MAX_VALUE);
 
         MECHA_PULSE_COOLDOWN = BUILDER
-                .comment("Duration (ticks) of the Pulse Cooldown effect inflicted upon Witherite weapons releasing a shockwave.  Pulse Charge cannot accumulate while this effect is active.")
-                .defineInRange("mechaPulseCooldown", 900, 0, Integer.MAX_VALUE);
+                .comment(" Duration (ticks) of the Pulse Cooldown effect inflicted upon Witherite weapons releasing a shockwave.  Pulse Charge cannot accumulate while this effect is active.")
+                .defineInRange("mechaPulseCooldown", 800, 0, Integer.MAX_VALUE);
 
         MECHA_PULSE_STUN_DURATION = BUILDER
-                .comment("Stun duration (ticks) inflicted by Witherite weapons when a shockwave is released.")
+                .comment(" Stun duration (ticks) inflicted by Witherite weapons when a shockwave is released.")
                 .defineInRange("mechaPulseStunDuration", 200, 0, Integer.MAX_VALUE);
 
         MECHA_PULSE_EXTRA_DAMAGE = BUILDER
-                .comment("Additional damage a shockwave does when released.")
+                .comment(" Additional damage a shockwave does when released.")
                 .defineInRange("mechaPulseStunDamage", 4.0, 0.0, Double.MAX_VALUE);
 
         BUILDER.pop();
@@ -123,43 +177,43 @@ public class Config
         BUILDER.push("Mecha Smite Options");
 
         MECHA_SMITE_CHANCE = BUILDER
-                .comment("Chance for Witherite weapons to set the target on fire and apply Wither.  Set to 0 to disable")
-                .defineInRange("mechaSmiteHarmfulEffectsChance", 1.0, 0.0, Double.MAX_VALUE);
+                .comment(" Chance for Witherite weapons to set the target on fire and apply Wither.  Set to 0 to disable.")
+                .defineInRange("mechaSmiteHarmfulEffectsChance", 1.0, 0.0, 1.0);
 
         MECHA_SMITE_FIRE_DURATION = BUILDER
-                .comment("Duration (seconds) of the Fire applied by Witherite weapons.  Set to 0 to disable")
+                .comment(" Duration (seconds) of the Fire applied by Witherite weapons.  Set to 0 to disable.")
                 .defineInRange("mechaSmiteFireDuration", 5, 0, Integer.MAX_VALUE);
 
         MECHA_SMITE_WITHER_DURATION = BUILDER
-                .comment("Duration (ticks) of the Wither effect applied to the target by Witherite weapons.  Set to 0 to disable")
+                .comment(" Duration (ticks) of the Wither effect applied to the target by Witherite weapons.  Set to 0 to disable.")
                 .defineInRange("mechaSmiteWitherDuration", 100, 0, Integer.MAX_VALUE);
 
         MECHA_SMITE_WITHER_AMP = BUILDER
-                .comment("Amplifier of the Wither effect applied to the target by Witherite weapons.")
+                .comment(" Amplifier of the Wither effect applied to the target by Witherite weapons.")
                 .defineInRange("mechaSmiteWitherAmplifier", 1, 0, Integer.MAX_VALUE);
 
         MECHA_SMITE_REGEN_CHANCE = BUILDER
-                .comment("Chance for Witherite weapons apply regeneration to the user when under health threshold.  Set to 0 to disable")
+                .comment(" Chance for Witherite weapons apply regeneration to the user when under health threshold.  Set to 0 to disable.")
                 .defineInRange("mechaSmiteRegenChance", 0.5, 0.0, Double.MAX_VALUE);
 
         MECHA_SMITE_REGEN_THRESHOLD_TYPE = BUILDER
-                .comment("Whether Witherite weapons should apply Regeneration to the user at a certain health percentage (true), or at a defined health amount (false)")
+                .comment(" Whether Witherite weapons should apply Regeneration to the user at a certain health percentage (true), or at a defined health amount (false).")
                 .define("mechaSmiteRegenUsesPercentage", true);
 
         MECHA_SMITE_REGEN_THRESHOLD_PERCENT = BUILDER
-                .comment("If mechaSmiteRegenUsesPercentage is true, Witherite weapons will apply Regeneration to the user when under this percentage of health.  Set to 0 to disable")
+                .comment(" If mechaSmiteRegenUsesPercentage is true, Witherite weapons will apply Regeneration to the user when under this percentage of health.  Set to 0 to disable.")
                 .defineInRange("mechaSmiteRegenPercentage", 0.5, 0.0, Double.MAX_VALUE);
 
         MECHA_SMITE_REGEN_THRESHOLD = BUILDER
-                .comment("If mechaSmiteRegenUsesPercentage is false, Witherite weapons will apply Regeneration to the user when under this amount of health.  Set to 0 to disable")
+                .comment(" If mechaSmiteRegenUsesPercentage is false, Witherite weapons will apply Regeneration to the user when under this amount of health.  Set to 0 to disable.")
                 .defineInRange("mechaSmiteRegenThreshold", 10, 0, Integer.MAX_VALUE);
 
         MECHA_SMITE_REGEN_DURATION = BUILDER
-                .comment("Duration (ticks) of the Regeneration effect applied to the user by Witherite weapons.")
+                .comment(" Duration (ticks) of the Regeneration effect applied to the user by Witherite weapons.")
                 .defineInRange("mechaSmiteRegenDuration", 100, 0, Integer.MAX_VALUE);
 
         MECHA_SMITE_REGEN_AMP = BUILDER
-                .comment("Amplifier of the Regeneration effect applied to the user by Witherite weapons.")
+                .comment(" Amplifier of the Regeneration effect applied to the user by Witherite weapons.")
                 .defineInRange("mechaSmiteRegenAmplifier", 1, 0, Integer.MAX_VALUE);
 
         BUILDER.pop();
@@ -168,11 +222,11 @@ public class Config
         BUILDER.push("Miscellaneous Options");
 
         CUSTOM_SOUNDS = BUILDER
-                .comment("Enable/Disable Ignitium, Cursium, and Witherite weapons making custom sounds when attacking.")
+                .comment(" Enable/Disable Ignitium, Cursium, and Witherite weapons making custom sounds when attacking.")
                 .define("customWeaponSounds", true);
 
         PITCH_VARIATION = BUILDER
-                .comment("Pitch variation from 1.0 for custom weapon attack sounds.  For example: Set to 0.1, pitch will be random between 0.9 and 1.1.  Set to 0.0 for no variation.")
+                .comment(" Pitch variation from 1.0 for custom weapon attack sounds.  For example: Set to 0.1, pitch will be random between 0.9 and 1.1.  Set to 0.0 for no variation.")
                 .defineInRange("customWeaponSoundsPitchVariation", 0.1, 0.0, 1.0);
 
         BUILDER.pop();
@@ -212,6 +266,12 @@ public class Config
     @SubscribeEvent
     static void onLoad(final ModConfigEvent event)
     {
+        updateMaterialValues(SpartanCataclysm.ANCIENT_METAL, ANCIENT_METAL_DAMAGE, ANCIENT_METAL_SPEED);
+        updateMaterialValues(SpartanCataclysm.BLACK_STEEL, BLACK_STEEL_DAMAGE, BLACK_STEEL_SPEED);
+        updateMaterialValues(SpartanCataclysm.CURSIUM, CURSIUM_DAMAGE, CURSIUM_SPEED);
+        updateMaterialValues(SpartanCataclysm.IGNITIUM, IGNITIUM_DAMAGE, IGNITIUM_SPEED);
+        updateMaterialValues(SpartanCataclysm.WITHERITE, WITHERITE_DAMAGE, WITHERITE_SPEED);
+
         accursedRageChance = ACCURSED_RAGE_CHANCE.get();
         blazingBrandChance = BLAZING_BRAND_CHANCE.get();
         accursedRageExtraDamage = ACCURSED_RAGE_EXTRA_DAMAGE.get();
@@ -241,6 +301,11 @@ public class Config
 
         customSounds = CUSTOM_SOUNDS.get();
         pitchVariation = PITCH_VARIATION.get();
+    }
+
+    private static void updateMaterialValues(SpartanMaterial material, ForgeConfigSpec.DoubleValue damage, ForgeConfigSpec.DoubleValue speed) {
+        material.setAttackDamageModifier((damage.get()).floatValue());
+        material.setAttackSpeedModifier((speed.get()).floatValue());
     }
 
     public static float getRandomPitch() {

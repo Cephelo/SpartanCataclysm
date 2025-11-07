@@ -1,0 +1,100 @@
+{
+  "values": [
+		{
+			"id": "spartancataclysm:ignitium_dagger",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_parrying_dagger",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_longsword",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_katana",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_saber",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_rapier",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_greatsword",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_battle_hammer",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_warhammer",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_spear",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_halberd",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_pike",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_lance",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_longbow",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_heavy_crossbow",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_throwing_knife",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_tomahawk",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_javelin",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_boomerang",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_battleaxe",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_flanged_mace",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_glaive",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_quarterstaff",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ignitium_scythe",
+			"required": false
+		}
+  ]
+}

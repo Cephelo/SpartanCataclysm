@@ -1,0 +1,100 @@
+{
+  "values": [
+		{
+			"id": "spartancataclysm:black_steel_dagger",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_parrying_dagger",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_longsword",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_katana",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_saber",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_rapier",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_greatsword",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_battle_hammer",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_warhammer",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_spear",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_halberd",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_pike",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_lance",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_longbow",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_heavy_crossbow",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_throwing_knife",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_tomahawk",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_javelin",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_boomerang",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_battleaxe",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_flanged_mace",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_glaive",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_quarterstaff",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:black_steel_scythe",
+			"required": false
+		}
+  ]
+}

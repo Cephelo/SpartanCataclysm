@@ -1,7 +1,6 @@
 package dev.cephelo.spartancataclysm;
 
 import com.github.L_Ender.cataclysm.Cataclysm;
-import com.github.L_Ender.cataclysm.init.ModTag;
 import com.mojang.logging.LogUtils;
 import com.oblivioussp.spartanweaponry.api.WeaponTraits;
 import com.oblivioussp.spartanweaponry.api.trait.WeaponTrait;
@@ -15,8 +14,6 @@ import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.data.recipes.SmithingTransformRecipeBuilder;
-import net.minecraft.data.tags.IntrinsicHolderTagsProvider;
-import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.tags.ItemTags;
@@ -65,7 +62,6 @@ public class SpartanCataclysm extends SpartanAddon {
             new ForgeTier(5, -1, 7F, 6F, 18,
                     BlockTags.NEEDS_DIAMOND_TOOL, () -> Ingredient.of(ModItems.WITHERITE_INGOT.get())),
             new ResourceLocation(Cataclysm.MODID, "witherite_ingot"), List.of(Tiers.NETHERITE), List.of(CURSIUM_TIER));
-
 
     // Traits
     public static final RegistryObject<WeaponTrait> BLAZING_BRAND = registerTrait(TRAITS, new BlazingBrandTrait());
@@ -117,24 +113,6 @@ public class SpartanCataclysm extends SpartanAddon {
 
     private static TagKey<Item> registerItemTag(String name) {
         return TagKey.create(Registries.ITEM, new ResourceLocation(SpartanCataclysm.MODID, name));
-    }
-
-    @Override
-    protected void addItemTags(ItemTagsProvider provider, Function<TagKey<Item>, IntrinsicHolderTagsProvider.IntrinsicTagAppender<Item>> tag) {
-        Function<SpartanMaterial, Item[]> func = material -> WEAPONS.entrySet().stream()
-                .filter(entry -> entry.getKey().first().equals(material))
-                .map(entry -> entry.getValue().get())
-                .toArray(Item[]::new);
-        tag.apply(ModTag.EXPLOSION_IMMUNE_ITEM)
-                .add(func.apply(CURSIUM))
-                .add(func.apply(IGNITIUM))
-                .add(func.apply(WITHERITE));
-
-        tag.apply(ANCIENT_METAL_WEAPONS).add(func.apply(ANCIENT_METAL));
-        tag.apply(BLACK_STEEL_WEAPONS).add(func.apply(BLACK_STEEL));
-        tag.apply(CURSIUM_WEAPONS).add(func.apply(CURSIUM));
-        tag.apply(IGNITIUM_WEAPONS).add(func.apply(IGNITIUM));
-        tag.apply(WITHERITE_WEAPONS).add(func.apply(WITHERITE));
     }
 
     private void generateSmeltingRecipes(Consumer<FinishedRecipe> consumer, TagKey<Item> tag, Item result, String key) {

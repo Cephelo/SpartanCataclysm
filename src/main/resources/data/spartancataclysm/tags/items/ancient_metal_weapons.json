@@ -1,0 +1,100 @@
+{
+  "values": [
+		{
+			"id": "spartancataclysm:ancient_metal_dagger",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_parrying_dagger",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_longsword",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_katana",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_saber",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_rapier",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_greatsword",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_battle_hammer",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_warhammer",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_spear",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_halberd",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_pike",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_lance",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_longbow",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_heavy_crossbow",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_throwing_knife",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_tomahawk",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_javelin",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_boomerang",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_battleaxe",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_flanged_mace",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_glaive",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_quarterstaff",
+			"required": false
+		},
+		{
+			"id": "spartancataclysm:ancient_metal_scythe",
+			"required": false
+		}
+  ]
+}
