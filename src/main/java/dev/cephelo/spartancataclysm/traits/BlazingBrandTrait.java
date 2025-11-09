@@ -4,14 +4,13 @@ import com.oblivioussp.spartanweaponry.api.WeaponMaterial;
 import com.oblivioussp.spartanweaponry.api.trait.WeaponTrait;
 import dev.cephelo.spartancataclysm.Config;
 import dev.cephelo.spartancataclysm.SpartanCataclysm;
+import dev.cephelo.spartancataclysm.effects.SCEffects;
 import dev.cephelo.spartancataclysm.sounds.SCSounds;
 import krelox.spartantoolkit.BetterWeaponTrait;
-import com.github.L_Ender.cataclysm.config.CMConfig;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundSource;
 import net.minecraft.util.Mth;
-import com.github.L_Ender.cataclysm.init.ModEffect;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.LivingEntity;
@@ -26,7 +25,7 @@ public class BlazingBrandTrait extends BetterWeaponTrait {
 
     @Override
     public String getDescription() {
-        return "Can stack Blazing Brand on target.  Attacker gains lifesteal.";
+        return "Can stack Blazing Brand on the target, reducing armor based on the amplifier.  Attackers gain a small amount of lifesteal.";
     }
 
     @Override
@@ -58,23 +57,23 @@ public class BlazingBrandTrait extends BetterWeaponTrait {
 
     private static void stackBlazingBrand(LivingEntity attacker, LivingEntity target, float factor) {
         try {
-            var brandEffect = ModEffect.EFFECTBLAZING_BRAND.get();
+            var brandEffect = SCEffects.BLAZING_BRAND_CUSTOM.get();
             var oldEffect = target.getEffect(brandEffect);
             int i = oldEffect == null ? 0 : Math.min(Config.blazingBrandMaximum, oldEffect.getAmplifier() + 1);
 
             target.addEffect(new MobEffectInstance(brandEffect, Config.blazingBrandDuration, i));
 
             // Lifesteal
-            if (factor > 0.0f) {
-                attacker.heal(factor * (float) CMConfig.IgnisHealingMultiplier * (float) (i + 1));
+            if (factor > 0.0f && Math.random() <= Config.blazingBrandLifestealChance) {
+                attacker.heal(factor * (float) (i + 1));
                 // Particles for healing
                 if (attacker.level() instanceof ServerLevel serverLevel)
-                    serverLevel.sendParticles(ParticleTypes.SMALL_FLAME, attacker.getX(), attacker.getY() + 1, attacker.getZ(), 4, 0.3, 0.6, 0.3, 0.015);
+                    serverLevel.sendParticles(ParticleTypes.SMALL_FLAME, attacker.getX(), attacker.getY() + 1, attacker.getZ(), 6, 0.3, 0.6, 0.3, 0.02);
             }
 
             // Blazing Brand particles on target
             if (attacker.level() instanceof ServerLevel serverLevel)
-                serverLevel.sendParticles((i == Config.blazingBrandMaximum ? ParticleTypes.SOUL_FIRE_FLAME : ParticleTypes.FLAME), target.getX(), target.getY() + target.getEyeHeight() - 1.0, target.getZ(), 8, 0.4, 0.7, 0.4, 0.02);
+                serverLevel.sendParticles((i == Config.blazingBrandMaximum ? ParticleTypes.SOUL_FIRE_FLAME : ParticleTypes.FLAME), target.getX(), target.getY() + target.getEyeHeight() - 1.0, target.getZ(), 10, 0.4, 0.7, 0.4, 0.02);
 
             // Custom hit sound
             if (Config.customSounds) attacker.level().playSeededSound(null, target.getX(), target.getY(), target.getZ(),

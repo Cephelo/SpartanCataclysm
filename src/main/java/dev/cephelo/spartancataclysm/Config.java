@@ -27,6 +27,9 @@ public class Config
             ACCURSED_RAGE_CHANCE,
             ACCURSED_RAGE_EXTRA_DAMAGE,
             BLAZING_BRAND_CHANCE,
+            BLAZING_BRAND_LIFESTEAL_CHANCE,
+            BLAZING_BRAND_ARMOR_REDUCTION,
+            BLAZING_BRAND_ARMOR_TOUGHNESS_REDUCTION,
             MECHA_SMITE_CHANCE,
             MECHA_SMITE_REGEN_CHANCE,
             LIFESTEAL_MULTIPLIER,
@@ -106,7 +109,7 @@ public class Config
         BUILDER.push("Accursed Rage Options");
 
         ACCURSED_RAGE_CHANCE = BUILDER
-                .comment(" Chance for Cursium weapons to stack Accursed Rage on the user.  Set to 0 to disable.")
+                .comment(" Chance on hit for Cursium weapons to stack the Accursed Rage effect on the user.  Set to 0 to disable.")
                 .defineInRange("accursedRageChance", 0.66, 0.0, 1.0);
 
         ACCURSED_RAGE_EXTRA_DAMAGE = BUILDER
@@ -127,8 +130,12 @@ public class Config
         BUILDER.push("Blazing Brand Options");
 
         BLAZING_BRAND_CHANCE = BUILDER
-                .comment(" Chance for Ignitium weapons to stack Blazing Brand onto attacked entities.  Set to 0 to disable.")
+                .comment(" Chance on hit for Ignitium weapons to stack the Blazing Brand effect onto attacked entities.  Set to 0 to disable.")
                 .defineInRange("blazingBrandChance", 0.75, 0.0, 1.0);
+
+        BLAZING_BRAND_LIFESTEAL_CHANCE = BUILDER
+                .comment(" Chance on hit for Ignitium weapons to grant lifesteal to the user.  Blazing Brand trait must have hit successfully - for example, if blazingBrandChance is 0 then lifesteal will never be given.  Set to 0 to disable.")
+                .defineInRange("blazingBrandLifestealChance", 1.0, 0.0, 1.0);
 
         LIFESTEAL_MULTIPLIER = BUILDER
                 .comment(" Lifesteal multiplier for Ignitium weapons.  Lifesteal amount depends on attack speed, so rate should correlates with DPS.  Set to 0 to disable lifesteal.")
@@ -142,13 +149,21 @@ public class Config
                 .comment(" Maximum amplifier the Blazing Brand effect can reach using Ignitium weapons.  Default is identical to Ignis' abilities.")
                 .defineInRange("blazingBrandMaxAmplifier", 4, 0, Integer.MAX_VALUE);
 
+        BLAZING_BRAND_ARMOR_REDUCTION = BUILDER
+                .comment(" Multiplier (per amplifier) that entities afflicted with Brazing Brand will have its Armor attribute reduced by.  Default is identical to Ignis' abilities.  Requires restart.")
+                .defineInRange("blazingBrandArmorMultiplier", 0.2, 0.0, 1.0);
+
+        BLAZING_BRAND_ARMOR_TOUGHNESS_REDUCTION = BUILDER
+                .comment(" Multiplier (per amplifier) that entities afflicted with Brazing Brand will have its Armor Toughness attribute reduced by.  Default is identical to Ignis' abilities.  Requires restart.")
+                .defineInRange("blazingBrandArmorToughnessMultiplier", 0.2, 0.0, 1.0);
+
         BUILDER.pop();
 
         // MECHA PULSE OPTIONS
         BUILDER.push("Mecha Pulse Options");
 
         MECHA_PULSE_CHARGE_CHANCE = BUILDER
-                .comment(" Chance for Witherite weapons to stack the Pulse Charge effect on the user.  Set to 0 to disable.")
+                .comment(" Chance on hit for Witherite weapons to stack the Pulse Charge effect on the user.  Set to 0 to disable.")
                 .defineInRange("mechaPulseChargeChance", 0.75, 0.0, 1.0);
 
         MECHA_PULSE_EFFECT_DURATION = BUILDER
@@ -177,7 +192,7 @@ public class Config
         BUILDER.push("Mecha Smite Options");
 
         MECHA_SMITE_CHANCE = BUILDER
-                .comment(" Chance for Witherite weapons to set the target on fire and apply Wither.  Set to 0 to disable.")
+                .comment(" Chance on hit for Witherite weapons to set the target on fire and apply Wither.  Set to 0 to disable.")
                 .defineInRange("mechaSmiteHarmfulEffectsChance", 1.0, 0.0, 1.0);
 
         MECHA_SMITE_FIRE_DURATION = BUILDER
@@ -193,7 +208,7 @@ public class Config
                 .defineInRange("mechaSmiteWitherAmplifier", 1, 0, Integer.MAX_VALUE);
 
         MECHA_SMITE_REGEN_CHANCE = BUILDER
-                .comment(" Chance for Witherite weapons apply regeneration to the user when under health threshold.  Set to 0 to disable.")
+                .comment(" Chance on hit for Witherite weapons apply regeneration to the user when under health threshold.  Set to 0 to disable.")
                 .defineInRange("mechaSmiteRegenChance", 0.5, 0.0, Double.MAX_VALUE);
 
         MECHA_SMITE_REGEN_THRESHOLD_TYPE = BUILDER
@@ -235,12 +250,15 @@ public class Config
 
     public static double accursedRageChance;
     public static double blazingBrandChance;
+    public static double blazingBrandLifestealChance;
     public static double accursedRageExtraDamage;
     public static int accursedRageDuration;
     public static int accursedRageMaximum;
     public static double lifestealMultiplier;
     public static int blazingBrandDuration;
     public static int blazingBrandMaximum;
+    public static double blazingBrandArmorReduction;
+    public static double blazingBrandArmorToughnessReduction;
 
     public static double mechaPulseChargeChance;
     public static int mechaPulseStunThreshold;
@@ -274,12 +292,15 @@ public class Config
 
         accursedRageChance = ACCURSED_RAGE_CHANCE.get();
         blazingBrandChance = BLAZING_BRAND_CHANCE.get();
+        blazingBrandLifestealChance = BLAZING_BRAND_LIFESTEAL_CHANCE.get();
         accursedRageExtraDamage = ACCURSED_RAGE_EXTRA_DAMAGE.get();
         accursedRageDuration = ACCURSED_RAGE_DURATION.get();
         accursedRageMaximum = ACCURSED_RAGE_MAXIMUM.get();
         lifestealMultiplier = LIFESTEAL_MULTIPLIER.get();
         blazingBrandDuration = BLAZING_BRAND_DURATION.get();
         blazingBrandMaximum = BLAZING_BRAND_MAXIMUM.get();
+        blazingBrandArmorReduction = BLAZING_BRAND_ARMOR_REDUCTION.get();
+        blazingBrandArmorToughnessReduction = BLAZING_BRAND_ARMOR_TOUGHNESS_REDUCTION.get();
 
         mechaPulseChargeChance = MECHA_PULSE_CHARGE_CHANCE.get();
         mechaPulseStunThreshold = MECHA_PULSE_STUN_THRESHOLD.get();

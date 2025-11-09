@@ -24,7 +24,7 @@ public class MechaPulseTrait extends BetterWeaponTrait {
 
     @Override
     public String getDescription() {
-        return "Can stack Pulse Charge on attacker.  Upon reaching a sufficient amplifier, a shockwave stuns and deals damage to the target";
+        return "Can stack Pulse Charge on the attacker.  Upon reaching a sufficient amplifier, a shockwave stuns and deals damage to the target";
     } // reword
 
     @Override
@@ -61,7 +61,7 @@ public class MechaPulseTrait extends BetterWeaponTrait {
 
                     // Pulse Charge particles
                     if (attacker.level() instanceof ServerLevel serverLevel)
-                        serverLevel.sendParticles(ParticleTypes.ANGRY_VILLAGER, attacker.getX(), attacker.getY() + 1.5, attacker.getZ(), 2, 0.4, 0.4, 0.4, 0);
+                        serverLevel.sendParticles(ParticleTypes.ANGRY_VILLAGER, attacker.getX(), attacker.getY() + 1.4, attacker.getZ(), 3, 0.4, 0.4, 0.4, 0);
 
                     // Shockwave logic
                     if (reachedMax) {

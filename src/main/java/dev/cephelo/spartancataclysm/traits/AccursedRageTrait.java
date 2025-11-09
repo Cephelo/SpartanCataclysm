@@ -22,7 +22,7 @@ public class AccursedRageTrait extends BetterWeaponTrait {
 
     @Override
     public String getDescription() {
-        return "Can stack Accursed Rage on attacker.  Attackers with Accursed Rage do more damage with Cursium weapons depending on the amplifier.";
+        return "Can stack Accursed Rage on the user.  Attackers with Accursed Rage do more damage with Cursium weapons based on the amplifier.";
     }
 
     @Override
@@ -49,15 +49,19 @@ public class AccursedRageTrait extends BetterWeaponTrait {
                 int i = oldEffect == null ? 0 : Math.min(Config.accursedRageMaximum, oldEffect.getAmplifier() + 1);
                 boolean reachedMax = (i >= Config.accursedRageMaximum && oldEffect.getAmplifier() == i - 1);
 
+                // Targets hit with maximum Accursed Rage emit small cursed flame particles
+                if (attacker.level() instanceof ServerLevel serverLevel && i >= Config.accursedRageMaximum)
+                    serverLevel.sendParticles(ModParticle.SMALL_CURSED_FLAME.get(), target.getX(), target.getY() + target.getEyeHeight() - 1.0, target.getZ(), 8, 0.4, 0.7, 0.4, 0.02);
+
                 if (Math.random() <= Config.accursedRageChance) {
                     attacker.addEffect(new MobEffectInstance(rageEffect, Config.accursedRageDuration, i));
 
                     // Accursed Rage particles
                     if (attacker.level() instanceof ServerLevel serverLevel) {
                         if (reachedMax)
-                            serverLevel.sendParticles(ModParticle.CURSED_FLAME.get(), attacker.getX(), attacker.getY() + 1, attacker.getZ(), 9, 0.3, 0.6, 0.3, 0.02);
+                            serverLevel.sendParticles(ModParticle.CURSED_FLAME.get(), attacker.getX(), attacker.getY() + 1, attacker.getZ(), 15, 0.3, 0.6, 0.3, 0.02);
                         else if (i < Config.accursedRageMaximum)
-                            serverLevel.sendParticles(ModParticle.SMALL_CURSED_FLAME.get(), attacker.getX(), attacker.getY() + 1, attacker.getZ(), 6, 0.3, 0.6, 0.3, 0.01);
+                            serverLevel.sendParticles(ModParticle.SMALL_CURSED_FLAME.get(), attacker.getX(), attacker.getY() + 1, attacker.getZ(), 9, 0.3, 0.6, 0.3, 0.01);
                     }
 
                     // Play sound when attacker reaches maximum rage

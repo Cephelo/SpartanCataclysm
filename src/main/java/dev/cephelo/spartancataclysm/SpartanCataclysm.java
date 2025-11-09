@@ -50,18 +50,18 @@ public class SpartanCataclysm extends SpartanAddon {
     // Tiers
     public static final Tier IGNITIUM_TIER = TierSortingRegistry.registerTier(
             new ForgeTier(5, -1, 9F, 7F, 20,
-                    BlockTags.NEEDS_DIAMOND_TOOL, () -> Ingredient.of(ModItems.IGNITIUM_INGOT.get())),
+                    BlockTags.create(new ResourceLocation(MODID, "needs_ignitium_tool")), () -> Ingredient.of(ModItems.IGNITIUM_INGOT.get())),
             new ResourceLocation(Cataclysm.MODID, "ignitium_ingot"), List.of(Tiers.NETHERITE), List.of());
 
     public static final Tier CURSIUM_TIER = TierSortingRegistry.registerTier(
             new ForgeTier(5, -1, 9F, 6F, 20,
-                    BlockTags.NEEDS_DIAMOND_TOOL, () -> Ingredient.of(ModItems.CURSIUM_INGOT.get())),
-            new ResourceLocation(Cataclysm.MODID, "cursium_ingot"), List.of(Tiers.NETHERITE), List.of(IGNITIUM_TIER));
+                    BlockTags.create(new ResourceLocation(MODID, "needs_cursium_tool")), () -> Ingredient.of(ModItems.CURSIUM_INGOT.get())),
+            new ResourceLocation(Cataclysm.MODID, "cursium_ingot"), List.of(Tiers.NETHERITE), List.of());
 
     public static final Tier WITHERITE_TIER = TierSortingRegistry.registerTier(
             new ForgeTier(5, -1, 7F, 6F, 18,
-                    BlockTags.NEEDS_DIAMOND_TOOL, () -> Ingredient.of(ModItems.WITHERITE_INGOT.get())),
-            new ResourceLocation(Cataclysm.MODID, "witherite_ingot"), List.of(Tiers.NETHERITE), List.of(CURSIUM_TIER));
+                    BlockTags.create(new ResourceLocation(MODID, "needs_witherite_tool")), () -> Ingredient.of(ModItems.WITHERITE_INGOT.get())),
+            new ResourceLocation(Cataclysm.MODID, "witherite_ingot"), List.of(Tiers.NETHERITE), List.of());
 
     // Traits
     public static final RegistryObject<WeaponTrait> BLAZING_BRAND = registerTrait(TRAITS, new BlazingBrandTrait());
@@ -157,6 +157,8 @@ public class SpartanCataclysm extends SpartanAddon {
         provider.addEffect(SCEffects.PULSE_CHARGE, "Pulse Charge");
         provider.addEffect(SCEffects.PULSE_COOLDOWN, "Pulse Cooldown");
         provider.add("effect.spartancataclysm.accursed_rage.desc", "You deal more damage with Cursium weapons.");
+        provider.add("effect.cataclysm.blazing_brand.desc", "Reduces armor proportional to the amplifier.  Attackers gain lifesteal.");
+        provider.add("effect.spartancataclysm.blazing_brand.desc", "Reduces armor proportional to the amplifier.  Attackers gain lifesteal.");
         provider.add("effect.spartancataclysm.pulse_charge.desc", "A shockwave is released at a sufficient amplifier.");
         provider.add("effect.spartancataclysm.pulse_cooldown.desc", "Pulse Charge cannot be accumulated until this effect ceases.");
         provider.add("sounds.spartancataclysm.accursed_rage_max", "Accursed Rage reaches maximum");
