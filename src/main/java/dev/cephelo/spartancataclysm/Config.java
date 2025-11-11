@@ -326,7 +326,7 @@ public class Config
 
     private static void updateMaterialValues(SpartanMaterial material, ForgeConfigSpec.DoubleValue damage, ForgeConfigSpec.DoubleValue speed) {
         material.setAttackDamageModifier((damage.get()).floatValue());
-        material.setAttackSpeedModifier((speed.get()).floatValue());
+        material.setAttackSpeedModifier(speed.get());
     }
 
     public static float getRandomPitch() {

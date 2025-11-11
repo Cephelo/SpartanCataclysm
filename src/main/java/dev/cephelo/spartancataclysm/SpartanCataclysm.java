@@ -1,6 +1,5 @@
 package dev.cephelo.spartancataclysm;
 
-import com.github.L_Ender.cataclysm.Cataclysm;
 import com.mojang.logging.LogUtils;
 import com.oblivioussp.spartanweaponry.api.WeaponTraits;
 import com.oblivioussp.spartanweaponry.api.trait.WeaponTrait;
@@ -23,6 +22,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraftforge.common.ForgeTier;
 import net.minecraftforge.common.TierSortingRegistry;
 import net.minecraftforge.common.data.LanguageProvider;
+import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.config.ModConfig;
@@ -51,17 +51,17 @@ public class SpartanCataclysm extends SpartanAddon {
     public static final Tier IGNITIUM_TIER = TierSortingRegistry.registerTier(
             new ForgeTier(5, -1, 9F, 7F, 20,
                     BlockTags.create(new ResourceLocation(MODID, "needs_ignitium_tool")), () -> Ingredient.of(ModItems.IGNITIUM_INGOT.get())),
-            new ResourceLocation(Cataclysm.MODID, "ignitium_ingot"), List.of(Tiers.NETHERITE), List.of());
+            new ResourceLocation(SpartanCataclysm.MODID, "ignitium"), List.of(Tiers.NETHERITE), List.of());
 
     public static final Tier CURSIUM_TIER = TierSortingRegistry.registerTier(
             new ForgeTier(5, -1, 9F, 6F, 20,
                     BlockTags.create(new ResourceLocation(MODID, "needs_cursium_tool")), () -> Ingredient.of(ModItems.CURSIUM_INGOT.get())),
-            new ResourceLocation(Cataclysm.MODID, "cursium_ingot"), List.of(Tiers.NETHERITE), List.of());
+            new ResourceLocation(SpartanCataclysm.MODID, "cursium"), List.of(Tiers.NETHERITE), List.of());
 
     public static final Tier WITHERITE_TIER = TierSortingRegistry.registerTier(
             new ForgeTier(5, -1, 7F, 6F, 18,
                     BlockTags.create(new ResourceLocation(MODID, "needs_witherite_tool")), () -> Ingredient.of(ModItems.WITHERITE_INGOT.get())),
-            new ResourceLocation(Cataclysm.MODID, "witherite_ingot"), List.of(Tiers.NETHERITE), List.of());
+            new ResourceLocation(SpartanCataclysm.MODID, "witherite"), List.of(Tiers.NETHERITE), List.of());
 
     // Traits
     public static final RegistryObject<WeaponTrait> BLAZING_BRAND = registerTrait(TRAITS, new BlazingBrandTrait());
@@ -94,14 +94,14 @@ public class SpartanCataclysm extends SpartanAddon {
     public SpartanCataclysm() {
         ModLoadingContext.get().registerConfig(ModConfig.Type.SERVER, Config.SPEC);
 
-        var bus = FMLJavaModLoadingContext.get().getModEventBus();
-        SCEffects.register(bus);
-        SCSounds.register(bus);
+        IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+        SCEffects.register(modEventBus);
+        SCSounds.register(modEventBus);
 
         registerSpartanWeapons(ITEMS);
-        ITEMS.register(bus);
-        TRAITS.register(bus);
-        TABS.register(bus);
+        ITEMS.register(modEventBus);
+        TRAITS.register(modEventBus);
+        TABS.register(modEventBus);
     }
 
     // Weapon item tags
