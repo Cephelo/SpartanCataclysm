@@ -22,7 +22,7 @@ public class AccursedRageTrait extends BetterWeaponTrait {
 
     @Override
     public String getDescription() {
-        return "Can stack Accursed Rage on the user.  Attackers with Accursed Rage do more damage with Cursium weapons based on the amplifier.";
+        return "Can stack Accursed Rage on the user. Attackers with Accursed Rage do more damage with Cursium weapons based on the amplifier.";
     }
 
     @Override

@@ -21,7 +21,7 @@ public class MechaSmiteTrait extends BetterWeaponTrait {
 
     @Override
     public String getDescription() {
-        return "Ignites targets and inflicts them with Wither.  Can grant Regeneration when attacking while below half health.";
+        return "Ignites targets and inflicts them with Wither. Can grant Regeneration when attacking while below half health.";
     } // reword
 
     @Override

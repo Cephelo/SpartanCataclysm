@@ -24,7 +24,7 @@ public class MechaPulseTrait extends BetterWeaponTrait {
 
     @Override
     public String getDescription() {
-        return "Can stack Pulse Charge on the attacker.  Upon reaching a sufficient amplifier, a shockwave stuns and deals damage to the target.";
+        return "Can stack Pulse Charge on the attacker. Upon reaching a sufficient amplifier, a shockwave stuns and deals damage to the target.";
     } // reword
 
     @Override

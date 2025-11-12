@@ -25,7 +25,7 @@ public class BlazingBrandTrait extends BetterWeaponTrait {
 
     @Override
     public String getDescription() {
-        return "Can stack Blazing Brand on the target, reducing armor based on the amplifier.  Attackers gain a small amount of lifesteal.";
+        return "Can stack Blazing Brand on the target, reducing armor based on the amplifier. Attackers gain a small amount of lifesteal.";
     }
 
     @Override

@@ -157,8 +157,8 @@ public class SpartanCataclysm extends SpartanAddon {
         provider.addEffect(SCEffects.PULSE_CHARGE, "Pulse Charge");
         provider.addEffect(SCEffects.PULSE_COOLDOWN, "Pulse Cooldown");
         provider.add("effect.spartancataclysm.accursed_rage.desc", "You deal more damage with Cursium weapons.");
-        provider.add("effect.cataclysm.blazing_brand.desc", "Reduces armor proportional to the amplifier.  Attackers gain lifesteal.");
-        provider.add("effect.spartancataclysm.blazing_brand.desc", "Reduces armor proportional to the amplifier.  Attackers gain lifesteal.");
+        provider.add("effect.cataclysm.blazing_brand.desc", "Reduces armor proportional to the amplifier. Attackers gain lifesteal.");
+        provider.add("effect.spartancataclysm.blazing_brand.desc", "Reduces armor proportional to the amplifier. Attackers gain lifesteal.");
         provider.add("effect.spartancataclysm.pulse_charge.desc", "A shockwave is released at a sufficient amplifier.");
         provider.add("effect.spartancataclysm.pulse_cooldown.desc", "Pulse Charge cannot be accumulated until this effect ceases.");
         provider.add("sounds.spartancataclysm.accursed_rage_max", "Accursed Rage reaches maximum");
